@@ -477,8 +477,7 @@ Linux 下就更简单了，装好闭源驱动就能直接就能用于图形渲�
         <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍
 &lt;/h2&gt;&lt;p&gt;Artemis 没什么好介绍的了吧，给 SEGA 系 HDD 用的本地服，算是 Aqua 的继承者？&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;A network service emulator for games running SEGA&amp;rsquo;S ALL.NET service, and similar.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;A network service emulator for games running SEGA&amp;rsquo;S ALL.NET service, and similar.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Artemis 更新真的很快，我的更新速度可能跟不上&lt;br&gt;
 如果内容失效的话，评论区或者邮箱发我，看到会处理的）&lt;/p&gt;
 &lt;h2 id=&#34;windows&#34;&gt;Windows
@@ -596,8 +595,7 @@ Linux 下就更简单了，装好闭源驱动就能直接就能用于图形渲�
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;[!NOTE]
 除 &lt;strong&gt;Chinithm&lt;/strong&gt; 外均未测试，不保证可用性&lt;br&gt;
-&lt;del&gt;如果你有资源的话欢迎发我测试&lt;/del&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;del&gt;如果你有资源的话欢迎发我测试&lt;/del&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;chunithm&#34;&gt;Chunithm
 &lt;/h3&gt;&lt;p&gt;本文假定你游玩的是 &lt;strong&gt;Chunithm Sun Plus (2.16)&lt;/strong&gt; 以上版本&lt;br&gt;
 如果你仍在游玩 Sun 及以下版本，请使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/hykilpikonna/AquaDX&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -639,8 +637,7 @@ Linux 下就更简单了，装好闭源驱动就能直接就能用于图形渲�
 &lt;blockquote&gt;
 &lt;p&gt;[!NOTE]
 不要使用 localhost 和 127.0.0.1&lt;br&gt;
-否则 ALL.Net 会 NG&lt;/p&gt;
-&lt;/blockquote&gt;
+否则 ALL.Net 会 NG&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;开始享受你的次新次热吧&lt;/p&gt;
 &lt;h2 id=&#34;faq&#34;&gt;FAQ
 &lt;/h2&gt;&lt;p&gt;此处收录常见问题，如果你遇到了可以发我）&lt;/p&gt;

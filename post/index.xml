@@ -17,8 +17,7 @@
 &lt;/h2&gt;&lt;p&gt;如果你已经被录取了，那欢迎成为开平一中的一名学子！如果平不出意外的话你应该是要与她相处三年时光了，不管你喜不喜欢这所学校&lt;br&gt;
 这篇文章就是来告诉你&lt;del&gt;接下来的三年里如何在一中顽强的活下去&lt;/del&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;一中又大又漂亮！&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;一中又大又漂亮！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;交通&#34;&gt;交通
 &lt;/h2&gt;&lt;p&gt;除非你一整个学期都留校，不然看看这节还是有必要的)&lt;/p&gt;
 &lt;h3 id=&#34;开车&#34;&gt;开车
@@ -121,8 +120,7 @@ PS3: 记得带校卡！！！&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;熟悉无线电管理规定；&lt;br&gt;
 具有相应的操作技术能力，依照《业余无线电台管理办法》通过相应的操作技术能力验证；&lt;br&gt;
-使用的无线电发射设备依法取得型号核准（型号核准证载明的频率范围包含业余余业频段）；或者使用的自制、改装、拼装等未取得型号核准的无线电发射设备符合国家标准和国家无线电管理规定，且无线电发射频率范围仅限于业余业务频段。&lt;/p&gt;
-&lt;/blockquote&gt;
+使用的无线电发射设备依法取得型号核准（型号核准证载明的频率范围包含业余余业频段）；或者使用的自制、改装、拼装等未取得型号核准的无线电发射设备符合国家标准和国家无线电管理规定，且无线电发射频率范围仅限于业余业务频段。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;考取操作证书&#34;&gt;考取操作证书
 &lt;/h2&gt;&lt;p&gt;可以参考 Souiken 写的 &lt;a class=&#34;link&#34; href=&#34;https://blog.souiken.moe/post/amateurRaidoLicenseGuide/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;em&gt;业余无线电操作证考取指南&lt;/em&gt;&lt;/a&gt;&lt;br&gt;
@@ -444,8 +442,7 @@ BIOS自由度很高，能开放的基本都开放了，无需使用UniversalAMDF
 鉴于 Microsoft Surface 硬件的特殊性，目前只能使用仍在开发中的实验性触控驱动方案。&lt;strong&gt;这会导致触摸识别时有不灵敏的现象。&lt;/strong&gt;&lt;br&gt;
 鉴于 Microsoft Surface 硬件的特殊性，以下功能在 Surface 家族的硬件中暂时未能支持：&lt;br&gt;
 摄像头&lt;br&gt;
-重新启动时用 PIN 码登录&lt;/p&gt;
-&lt;/blockquote&gt;
+重新启动时用 PIN 码登录&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;不仅如此，由于 m3-8100y 和 UHD615 本身的性能就十分差，再加上驱动问题和转译，运行 Android 应用的效率低得要命，还有很严重的发热问题&lt;br&gt;
 因此作为 Android 平板使用也不在我们考虑范围之内&lt;br&gt;
 &lt;del&gt;有一说一应该没人会花大几千买台 Win 板然后跑 Android&lt;/del&gt;&lt;/p&gt;
@@ -855,8 +852,7 @@ BIOS自由度很高，能开放的基本都开放了，无需使用UniversalAMDF
         <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍
 &lt;/h2&gt;&lt;p&gt;Artemis 没什么好介绍的了吧，给 SEGA 系 HDD 用的本地服，算是 Aqua 的继承者？&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;A network service emulator for games running SEGA&amp;rsquo;S ALL.NET service, and similar.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;A network service emulator for games running SEGA&amp;rsquo;S ALL.NET service, and similar.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Artemis 更新真的很快，我的更新速度可能跟不上&lt;br&gt;
 如果内容失效的话，评论区或者邮箱发我，看到会处理的）&lt;/p&gt;
 &lt;h2 id=&#34;windows&#34;&gt;Windows
@@ -974,8 +970,7 @@ BIOS自由度很高，能开放的基本都开放了，无需使用UniversalAMDF
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;[!NOTE]
 除 &lt;strong&gt;Chinithm&lt;/strong&gt; 外均未测试，不保证可用性&lt;br&gt;
-&lt;del&gt;如果你有资源的话欢迎发我测试&lt;/del&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;del&gt;如果你有资源的话欢迎发我测试&lt;/del&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;chunithm&#34;&gt;Chunithm
 &lt;/h3&gt;&lt;p&gt;本文假定你游玩的是 &lt;strong&gt;Chunithm Sun Plus (2.16)&lt;/strong&gt; 以上版本&lt;br&gt;
 如果你仍在游玩 Sun 及以下版本，请使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/hykilpikonna/AquaDX&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1017,8 +1012,7 @@ BIOS自由度很高，能开放的基本都开放了，无需使用UniversalAMDF
 &lt;blockquote&gt;
 &lt;p&gt;[!NOTE]
 不要使用 localhost 和 127.0.0.1&lt;br&gt;
-否则 ALL.Net 会 NG&lt;/p&gt;
-&lt;/blockquote&gt;
+否则 ALL.Net 会 NG&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;开始享受你的次新次热吧&lt;/p&gt;
 &lt;h2 id=&#34;faq&#34;&gt;FAQ
 &lt;/h2&gt;&lt;p&gt;此处收录常见问题，如果你遇到了可以发我）&lt;/p&gt;
