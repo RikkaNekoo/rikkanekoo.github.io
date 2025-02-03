@@ -7,7 +7,68 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Rikka Shiina</copyright>
-        <lastBuildDate>Mon, 03 Feb 2025 19:20:50 +0800</lastBuildDate><atom:link href="https://rikka.im/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 03 Feb 2025 19:30:30 +0800</lastBuildDate><atom:link href="https://rikka.im/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>机械革命无界 15X 暴风雪使用体验</title>
+        <link>https://rikka.im/post/mechrevo-wujie15xa/</link>
+        <pubDate>Mon, 03 Feb 2025 00:48:31 +0800</pubDate>
+        
+        <guid>https://rikka.im/post/mechrevo-wujie15xa/</guid>
+        <description>&lt;h2 id=&#34;好耶&#34;&gt;好耶
+&lt;/h2&gt;&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;fastfetch.webp&#34;&gt;
+&lt;img src=&#34;fastfetch.webp&#34; alt=&#34;&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
+总之就是，换新电脑了&lt;br&gt;
+国补完 3998 到手&lt;br&gt;
+以前的那台零刻 SER5 MAX 虽然说确实有一定的便携性，但还是不怎么方便（便携屏+键盘），而且在外面组好这套有点太显眼了x，于是卖掉了&lt;/p&gt;
+&lt;h2 id=&#34;参数&#34;&gt;参数
+&lt;/h2&gt;&lt;p&gt;懒得列了，就补充些别的评测没有的吧&lt;br&gt;
+后面的 USB4 是 40Gbps 的，插上雷电三控制器可以识别，暂时没有 PCIe 设备进行测试&lt;br&gt;
+面板是京东方的，&lt;strong&gt;据说&lt;/strong&gt;存在坏点问题，我手上这台正常&lt;br&gt;
+机子自带的硬盘是英睿达的 P3 Plus&lt;br&gt;
+有线网卡是 Motorcomm YT6801（要注意这个网卡的驱动截至目前尚未进入 Linux 主线，安装时需要使用 Wi-Fi 或手机共享）&lt;br&gt;
+无线网卡是 MediaTek MT7922&lt;/p&gt;
+&lt;h2 id=&#34;使用体验&#34;&gt;使用体验
+&lt;/h2&gt;&lt;p&gt;太棒了！&lt;del&gt;（孩子词穷真的想不到什么更好的形容词了）&lt;/del&gt;&lt;br&gt;
+性能真的好到不像一个轻薄本，真的满足了我到处跑还能打游戏的幻想&lt;br&gt;
+键盘手感尚可，就是很普通的笔记本上的薄膜，平平无奇。但是它的全尺寸方向键和数字小键盘真的直接戳中我了，不过代价就是键盘边缘十分贴近 C 面边缘以及方向键是突出去的（强迫症患者可能会不适），见仁见智吧&lt;br&gt;
+屏幕可以单手开合，但是转轴并不是很稳定，移动时会前后晃&lt;/p&gt;
+&lt;p&gt;To do&lt;/p&gt;
+&lt;h2 id=&#34;性能&#34;&gt;性能
+&lt;/h2&gt;&lt;p&gt;以下性能均为电源接通时测试&lt;/p&gt;
+&lt;p&gt;To do&lt;/p&gt;
+&lt;h3 id=&#34;理论性能&#34;&gt;理论性能
+&lt;/h3&gt;&lt;h4 id=&#34;sysbench&#34;&gt;Sysbench
+&lt;/h4&gt;&lt;p&gt;单线程：5660&lt;br&gt;
+16 线程：47163&lt;/p&gt;
+&lt;h4 id=&#34;cpu-z&#34;&gt;CPU-Z
+&lt;/h4&gt;&lt;p&gt;单线程：706&lt;br&gt;
+多线程：7256&lt;/p&gt;
+&lt;h3 id=&#34;游戏性能&#34;&gt;游戏性能
+&lt;/h3&gt;&lt;h4 id=&#34;地平线-4&#34;&gt;地平线 4
+&lt;/h4&gt;&lt;p&gt;2560x1600，预设高，基准测试全程 60FPS，游戏时显卡占用约为 85-98%&lt;br&gt;
+（它比 Tesla M40 还要强诶！）
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;horizon4.webp&#34;&gt;
+&lt;img src=&#34;horizon4.webp&#34; alt=&#34;&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;minecraft&#34;&gt;Minecraft
+&lt;/h4&gt;&lt;p&gt;这不是闭着眼跑吗x&lt;br&gt;
+在 1.20 下锁 120 帧时 GPU 占用约在 30%-40%，在雨林的复杂地形最高 50%&lt;/p&gt;
+&lt;h2 id=&#34;踩坑&#34;&gt;踩坑
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;上面说过的网卡在 Linux 没驱动（Arch Linux 可以用 &lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/tuxedo-yt6801-dkms-git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tuxedo-yt6801-dkms-git&lt;/a&gt;，其他系统可在官网下载安装）&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>[WIP] 开平市第一中学求生指南</title>
         <link>https://rikka.im/post/kaiping-no-1-middle-school-survival-guide/</link>
         <pubDate>Sun, 19 Jan 2025 15:28:26 +0800</pubDate>
