@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="关于 买了台零刻 SER5 MAX，对 Vega 7 羸弱的性能实在是难以忍受\n但是又想要便携性不损失，于是便选择了用 NVMe 转 SFF-8612 (OCuLink)，要带走电脑的话直接把线拔了就行了\n使用的是开源宇宙的 EG01，有个架子还是美观点的\n显卡选择 Tesla M40 的最大原因其实是没钱（x\n性能还 OK，显存也大，重点是还便宜\n">
-<title>Tesla M40 上手体验</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="虽然说标题写着 15X 不过 14X 和 15X 都是通用的\n这破机子什么都得自己来，麻烦死了）\n不过幸好德国一个叫 TUXEDO 的公司也用了相同的模具，于是就有了驱动和控制面板\n">
+<title>机械革命无界 15X Linux 优化指南</title>
 
-<link rel='canonical' href='https://rikka.im/post/tesla-m40/'>
+<link rel='canonical' href='https://rikka.im/post/mechrevo-wujie15x-linux/'>
 
-<link rel="stylesheet" href="/scss/style.min.ef214aeb5b9e26cd20f80c3fac723170918a1143e128deafcdc4ed012ebf9782.css"><meta property='og:title' content="Tesla M40 上手体验">
-<meta property='og:description' content="关于 买了台零刻 SER5 MAX，对 Vega 7 羸弱的性能实在是难以忍受\n但是又想要便携性不损失，于是便选择了用 NVMe 转 SFF-8612 (OCuLink)，要带走电脑的话直接把线拔了就行了\n使用的是开源宇宙的 EG01，有个架子还是美观点的\n显卡选择 Tesla M40 的最大原因其实是没钱（x\n性能还 OK，显存也大，重点是还便宜\n">
-<meta property='og:url' content='https://rikka.im/post/tesla-m40/'>
+<link rel="stylesheet" href="/scss/style.min.ef214aeb5b9e26cd20f80c3fac723170918a1143e128deafcdc4ed012ebf9782.css"><meta property='og:title' content="机械革命无界 15X Linux 优化指南">
+<meta property='og:description' content="虽然说标题写着 15X 不过 14X 和 15X 都是通用的\n这破机子什么都得自己来，麻烦死了）\n不过幸好德国一个叫 TUXEDO 的公司也用了相同的模具，于是就有了驱动和控制面板\n">
+<meta property='og:url' content='https://rikka.im/post/mechrevo-wujie15x-linux/'>
 <meta property='og:site_name' content='Rikkaの小小窝'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='软件' /><meta property='article:tag' content='硬件' /><meta property='article:tag' content='电脑' /><meta property='article:tag' content='评测' /><meta property='article:published_time' content='2024-05-31T14:36:07&#43;00:00'/><meta property='article:modified_time' content='2025-02-03T19:20:50&#43;08:00'/>
-<meta name="twitter:title" content="Tesla M40 上手体验">
-<meta name="twitter:description" content="关于 买了台零刻 SER5 MAX，对 Vega 7 羸弱的性能实在是难以忍受\n但是又想要便携性不损失，于是便选择了用 NVMe 转 SFF-8612 (OCuLink)，要带走电脑的话直接把线拔了就行了\n使用的是开源宇宙的 EG01，有个架子还是美观点的\n显卡选择 Tesla M40 的最大原因其实是没钱（x\n性能还 OK，显存也大，重点是还便宜\n">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='软件' /><meta property='article:tag' content='电脑' /><meta property='article:tag' content='Linux' /><meta property='article:published_time' content='2025-06-01T23:04:18&#43;08:00'/><meta property='article:modified_time' content='2025-06-02T00:43:46&#43;08:00'/>
+<meta name="twitter:title" content="机械革命无界 15X Linux 优化指南">
+<meta name="twitter:description" content="虽然说标题写着 15X 不过 14X 和 15X 都是通用的\n这破机子什么都得自己来，麻烦死了）\n不过幸好德国一个叫 TUXEDO 的公司也用了相同的模具，于是就有了驱动和控制面板\n">
     <link rel="shortcut icon" href="/favicon.ico" />
 
 <script src="/zoom/jquery.min.js"></script>
@@ -369,10 +369,17 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#关于">关于</a></li>
-    <li><a href="#折腾过程">折腾过程</a></li>
-    <li><a href="#性能跑分">性能&amp;跑分</a></li>
-    <li><a href="#使用体验">使用体验</a></li>
+    <li><a href="#rj45-网卡">RJ45 网卡</a></li>
+    <li><a href="#键盘背光等驱动">键盘背光等驱动</a></li>
+    <li><a href="#控制面板">控制面板</a></li>
+    <li><a href="#人脸识别">人脸识别</a></li>
+    <li><a href="#性能优化">性能优化</a></li>
+    <li><a href="#已知问题">已知问题</a>
+      <ol>
+        <li><a href="#无法睡眠">无法睡眠</a></li>
+      </ol>
+    </li>
+    <li><a href="#参考">参考</a></li>
   </ol>
 </nav>
         </div>
@@ -400,7 +407,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/post/tesla-m40/">Tesla M40 上手体验</a>
+            <a href="/post/mechrevo-wujie15x-linux/">机械革命无界 15X Linux 优化指南</a>
         </h2>
     
         
@@ -422,7 +429,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2024-05-31</time>
+                <time class="article-time--published">2025-06-01</time>
             </div>
         
 
@@ -437,7 +444,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 1 分钟
                 </time>
             </div>
         
@@ -452,69 +459,43 @@
     <section class="article-content">
     
     
-    <h2 id="关于">关于
-</h2><p>买了台零刻 SER5 MAX，对 Vega 7 羸弱的性能实在是难以忍受<br>
-但是又想要便携性不损失，于是便选择了用 NVMe 转 SFF-8612 (OCuLink)，要带走电脑的话直接把线拔了就行了<br>
-使用的是开源宇宙的 EG01，有个架子还是美观点的<br>
-显卡选择 Tesla M40 的最大原因其实是没钱（x<br>
-性能还 OK，显存也大，重点是还便宜<br>
-
-<div class="post-img-view">
-<a data-fancybox="gallery" href="nvidia-smi.webp">
-<img src="nvidia-smi.webp" alt=""  />
-</a>
-</div>
-</p>
-<h2 id="折腾过程">折腾过程
-</h2><p>到货，插电，开机，轻松卡自检<br>
-其实是预料之中的问题，把整个 BIOS 翻烂了都找不到 Above 4G Decoding 的选项，用 UAFB 依然如此<br>
-经过查找，看到一篇<a class="link" href="https://www.bilibili.com/read/cv20768695/"  target="_blank" rel="noopener"
-    >教程</a>，使用 UEFITool 查找 Above 4G Decoding 的 VarStoreInfo 后使用 modGRUBShell 强开<br>
-<strong>（附：SER5 MAX 的 VarStoreInfo 为 0xF7）</strong><br>
-开启完成之后就能成功开机了<br>
-接下来就是正常流程的装驱动 <del>，改注册表开启 WDDM (<a class="link" href="https://www.bilibili.com/read/cv23955139/"  target="_blank" rel="noopener"
-    >参考</a>)</del><br>
-事实上并不需要，只要<strong>管理员</strong>运行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">nvidia-smi</span> <span class="n">-dm</span> <span class="mf">0</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>即可切换 WDDM 模式<br>
-Linux 下就更简单了，装好闭源驱动就能直接就能用于图形渲染<br>
-不过要注意禁用 GSP-RM，否则会出现占用低帧数上不去的问题 (<a class="link" href="https://www.ctyun.cn/document/10029787/10356098"  target="_blank" rel="noopener"
-    >出处</a>)</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo su -c <span class="s1">&#39;echo options nvidia NVreg_EnableGpuFirmware=0 &gt; /etc/modprobe.d/nvidia-gsp.conf&#39;</span>
-</span></span><span class="line"><span class="cl">sudo update-initramfs -u <span class="c1">#Debian/Ubuntu</span>
-</span></span><span class="line"><span class="cl">sudo mkinitcpio -P <span class="c1">#ArchLinux</span>
-</span></span><span class="line"><span class="cl">reboot
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="性能跑分">性能&amp;跑分
-</h2><ol>
-<li>地平线4:
-<ul>
-<li>在 Linux 下预设高，1080P 全程 60 帧但会有不频发的小卡顿，2K 下可以跑 55-60 帧，小卡顿较为频发但不太影响游戏</li>
-<li>在 Windows 下预设高，2K 除了在地平线全程 60 帧</li>
-</ul>
-</li>
-</ol>
-<p><strong>To do</strong></p>
-<h2 id="使用体验">使用体验
-</h2><p>显卡坞可以随机启停，这点很棒，不用一直按来按去开关了<br>
-风扇是 EVGA 的 980Ti 的，改装了温控，不打游戏时很安静，打游戏也不会很吵<br>
-温度控制的很好，不管玩什么游戏都不会超过 50℃</p>
+    <p>虽然说标题写着 15X 不过 14X 和 15X 都是通用的<br>
+这破机子什么都得自己来，麻烦死了）<br>
+不过幸好德国一个叫 TUXEDO 的公司也用了相同的模具，于是就有了驱动和控制面板</p>
+<h2 id="rj45-网卡">RJ45 网卡
+</h2><p>你机革不知道从哪里捡的网卡，没进主线导致没驱动，只能自己装</p>
+<p>Arch Linux 系用户: 用 AUR 的 <a class="link" href="https://aur.archlinux.org/packages/yt6801-dkms"  target="_blank" rel="noopener"
+    >yt6801-dkms</a> (我维护的)<br>
+Debian/Ubuntu 系用户: <a class="link" href="https://www.motor-comm.com/Public/Uploads/uploadfile/files/20250430/yt6801-linux-driver-1.0.30.zip"  target="_blank" rel="noopener"
+    >官网下载</a></p>
+<h2 id="键盘背光等驱动">键盘背光等驱动
+</h2><p>Arch Linux 系用户: 用 AUR 的 <a class="link" href="https://aur.archlinux.org/packages/mechrevo-drivers-dkms"  target="_blank" rel="noopener"
+    >mechrevo-drivers-dkms</a> (也是我维护的xwx，TUXEDO 的驱动打了 patch 来支持机革)<br>
+Debian/Ubuntu 系用户: 自己拉<a class="link" href="https://github.com/tuxedocomputers/tuxedo-drivers"  target="_blank" rel="noopener"
+    >源码</a>打 <a class="link" href="https://github.com/sund3RRR/Mechrevo14X-linux/raw/master/patches/add_mechrevo_vendor.patch"  target="_blank" rel="noopener"
+    >patch</a> 然后编译安装吧</p>
+<h2 id="控制面板">控制面板
+</h2><p>Linux 上的面板只能改一下性能配置、键盘背光等，聊胜于无吧<br>
+装好之后在 KDE 的状态栏亮度设置里就能调整键盘背光强度和颜色了</p>
+<p>Arch Linux 系用户: 用 AUR 的 <a class="link" href="https://aur.archlinux.org/packages/tuxedo-control-center-bin"  target="_blank" rel="noopener"
+    >tuxedo-control-center-bin</a> (AUR 万岁！)<br>
+Debian/Ubuntu 系用户: 按照 TUXEDO 的<a class="link" href="https://www.tuxedocomputers.com/en/Add-TUXEDO-software-package-sources.tuxedo"  target="_blank" rel="noopener"
+    >教程</a>添加源后安装 <code>tuxedo-control-center</code> 包</p>
+<h2 id="人脸识别">人脸识别
+</h2><p>说真的在 Linux 其实不好用，唯一一个还算能用的方案是 <a class="link" href="https://github.com/boltgolt/howdy"  target="_blank" rel="noopener"
+    >howdy</a><br>
+14X/15X 的红外摄像头是 <code>/dev/video2</code></p>
+<h2 id="性能优化">性能优化
+</h2><p>用 CachyOS，有针对 Zen4 专门优化的仓库</p>
+<h2 id="已知问题">已知问题
+</h2><p>下面是无法解决的已知问题</p>
+<h3 id="无法睡眠">无法睡眠
+</h3><p>合盖睡眠是正常的，但是在系统里按睡眠会秒醒<br>
+14X 可以试试添加 <code>acpi.ec_no_wakeup=1</code> 到内核参数里<br>
+<strong>15X 无解</strong>，试了上面的办法没用</p>
+<h2 id="参考">参考
+</h2><p><a class="link" href="https://github.com/sund3RRR/mechrevo14X-linux"  target="_blank" rel="noopener"
+    >Github - mechrevo14X-linux</a></p>
 
 </section>
 
@@ -525,11 +506,9 @@ Linux 下就更简单了，装好闭源驱动就能直接就能用于图形渲�
         
             <a href="/tags/%E8%BD%AF%E4%BB%B6/">软件</a>
         
-            <a href="/tags/%E7%A1%AC%E4%BB%B6/">硬件</a>
-        
             <a href="/tags/%E7%94%B5%E8%84%91/">电脑</a>
         
-            <a href="/tags/%E8%AF%84%E6%B5%8B/">评测</a>
+            <a href="/tags/linux/">Linux</a>
         
     </section>
 
@@ -556,7 +535,7 @@ Linux 下就更简单了，装好闭源驱动就能直接就能用于图形渲�
 
 
         <span>
-            最后修改于 2025-02-03 19:20 &#43;0800
+            最后修改于 2025-06-02 00:43 &#43;0800
         </span>
     </section></footer>
 
@@ -575,25 +554,12 @@ Linux 下就更简单了，装好闭源驱动就能直接就能用于图形渲�
             
                 
 <article class="">
-    <a href="/post/mechrevo-wujie15x-linux/">
+    <a href="/post/tesla-m40/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">机械革命无界 15X Linux 优化指南</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="">
-    <a href="/post/mechrevo-wujie15xa/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">机械革命无界 15X 暴风雪使用体验</h2>
+            <h2 class="article-title">Tesla M40 上手体验</h2>
         </div>
     </a>
 </article>
@@ -620,25 +586,6 @@ Linux 下就更简单了，装好闭源驱动就能直接就能用于图形渲�
 
         <div class="article-details">
             <h2 class="article-title">Artemis 不完全食用指南</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/post/beelink-ser5-max/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="https://pic3.zhimg.com/v2-251c8c7b96949f2d045db157e46a5106_b.webp" loading="lazy" data-key="beelink-ser5-max" data-hash="https://pic3.zhimg.com/v2-251c8c7b96949f2d045db157e46a5106_b.webp"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">零刻SER5 MAX使用体验</h2>
         </div>
     </a>
 </article>
