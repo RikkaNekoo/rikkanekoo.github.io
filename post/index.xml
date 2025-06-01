@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Shiina Rikka</copyright>
-        <lastBuildDate>Mon, 02 Jun 2025 00:43:46 +0800</lastBuildDate><atom:link href="https://rikka.im/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 02 Jun 2025 01:03:57 +0800</lastBuildDate><atom:link href="https://rikka.im/post/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>机械革命无界 15X Linux 优化指南</title>
         <link>https://rikka.im/post/mechrevo-wujie15x-linux/</link>
         <pubDate>Sun, 01 Jun 2025 23:04:18 +0800</pubDate>
@@ -223,13 +223,17 @@ Android 版八达通体验并没有 iOS 那么好，刷卡速度略慢&lt;br&gt;
 无线网卡是 MediaTek MT7922&lt;/p&gt;
 &lt;h2 id=&#34;使用体验&#34;&gt;使用体验
 &lt;/h2&gt;&lt;p&gt;太棒了！&lt;del&gt;（孩子词穷真的想不到什么更好的形容词了）&lt;/del&gt;&lt;br&gt;
-性能真的好到不像一个轻薄本，真的满足了我到处跑还能打游戏的幻想&lt;br&gt;
-键盘手感尚可，就是很普通的笔记本上的薄膜，平平无奇。但是它的全尺寸方向键和数字小键盘真的直接戳中我了，不过代价就是键盘边缘十分贴近 C 面边缘以及方向键是突出去的（强迫症患者可能会不适），见仁见智吧&lt;br&gt;
+性能真的好到不像一个轻薄本，真的满足了我到处跑还能打游戏的幻想&lt;/p&gt;
+&lt;p&gt;键盘手感尚可，就是很普通的笔记本上的薄膜，平平无奇。但是它的全尺寸方向键和数字小键盘真的直接戳中我了，不过代价就是键盘边缘十分贴近 C 面边缘以及方向键是突出去的（强迫症患者可能会不适），见仁见智吧&lt;br&gt;
 屏幕可以单手开合，但是转轴并不是很稳定，移动时会前后晃&lt;/p&gt;
-&lt;p&gt;To do&lt;/p&gt;
+&lt;p&gt;风扇即便是全速也算比较安静的了，放卧室里睡觉是 ok 的&lt;br&gt;
+散热很棒，全核满载 4.6G 的情况下还能稳住不到 80°C&lt;/p&gt;
+&lt;p&gt;Linux 下的优化参考我的&lt;a class=&#34;link&#34; href=&#34;https://rikka.im/post/mechrevo-wujie15x-linux/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;另一篇文章&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;WIP&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&#34;性能&#34;&gt;性能
 &lt;/h2&gt;&lt;p&gt;以下性能均为电源接通时测试&lt;/p&gt;
-&lt;p&gt;To do&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;WIP&lt;/em&gt;&lt;/p&gt;
 &lt;h3 id=&#34;理论性能&#34;&gt;理论性能
 &lt;/h3&gt;&lt;h4 id=&#34;sysbench&#34;&gt;Sysbench
 &lt;/h4&gt;&lt;p&gt;单线程：5660&lt;br&gt;
@@ -251,11 +255,6 @@ Android 版八达通体验并没有 iOS 那么好，刷卡速度略慢&lt;br&gt;
 &lt;h4 id=&#34;minecraft&#34;&gt;Minecraft
 &lt;/h4&gt;&lt;p&gt;这不是闭着眼跑吗x&lt;br&gt;
 在 1.20 下锁 120 帧时 GPU 占用约在 30%-40%，在雨林的复杂地形最高 50%&lt;/p&gt;
-&lt;h2 id=&#34;踩坑&#34;&gt;踩坑
-&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;上面说过的网卡在 Linux 没驱动（Arch Linux 可以用 &lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/tuxedo-yt6801-dkms-git&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;tuxedo-yt6801-dkms-git&lt;/a&gt;，其他系统可在官网下载安装）&lt;/li&gt;
-&lt;/ol&gt;
 </description>
         </item>
         <item>
