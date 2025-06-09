@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Shiina Rikka</copyright>
-        <lastBuildDate>Mon, 02 Jun 2025 01:06:17 +0800</lastBuildDate><atom:link href="https://rikka.im/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Jun 2025 11:05:55 +0800</lastBuildDate><atom:link href="https://rikka.im/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>机械革命无界 15X Linux 优化指南</title>
         <link>https://rikka.im/post/mechrevo-wujie15x-linux/</link>
         <pubDate>Sun, 01 Jun 2025 23:04:18 +0800</pubDate>
@@ -35,21 +35,51 @@ Debian/Ubuntu 系用户: 自己拉&lt;a class=&#34;link&#34; href=&#34;https://g
     &gt;tuxedo-control-center-bin&lt;/a&gt; (AUR 万岁！)&lt;br&gt;
 Debian/Ubuntu 系用户: 按照 TUXEDO 的&lt;a class=&#34;link&#34; href=&#34;https://www.tuxedocomputers.com/en/Add-TUXEDO-software-package-sources.tuxedo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;教程&lt;/a&gt;添加源后安装 &lt;code&gt;tuxedo-control-center&lt;/code&gt; 包&lt;/p&gt;
-&lt;h2 id=&#34;人脸识别&#34;&gt;人脸识别
+&lt;h2 id=&#34;无法睡眠&#34;&gt;无法睡眠
+&lt;/h2&gt;&lt;p&gt;14X 可以试试添加 &lt;code&gt;acpi.ec_no_wakeup=1&lt;/code&gt; 到内核参数里&lt;/p&gt;
+&lt;p&gt;15X 新建一条 udev 规则禁用 PS/2 键盘的 Wakeup Trigger&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;br&gt;
+&lt;code&gt;/etc/udev/rules.d/99-disable-keyboard-wakeup.rules&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# Disable wakeup for PS/2 keyboard controller
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ACTION==&amp;#34;add&amp;#34;, SUBSYSTEM==&amp;#34;serio&amp;#34;, KERNEL==&amp;#34;serio0&amp;#34;, ATTR{power/wakeup}=&amp;#34;disabled&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;然后重载 udev 规则并重启&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;udevadm&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;control&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reload&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;rules&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;udevadm&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trigger&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;reboot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;人脸识别&#34;&gt;人脸识别
 &lt;/h2&gt;&lt;p&gt;说真的在 Linux 其实不好用，唯一一个还算能用的方案是 &lt;a class=&#34;link&#34; href=&#34;https://github.com/boltgolt/howdy&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;howdy&lt;/a&gt;&lt;br&gt;
 14X/15X 的红外摄像头是 &lt;code&gt;/dev/video2&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;性能优化&#34;&gt;性能优化
 &lt;/h2&gt;&lt;p&gt;用 CachyOS，有针对 Zen4 专门优化的仓库&lt;/p&gt;
-&lt;h2 id=&#34;已知问题&#34;&gt;已知问题
-&lt;/h2&gt;&lt;p&gt;下面是无法解决的已知问题&lt;/p&gt;
-&lt;h3 id=&#34;无法睡眠&#34;&gt;无法睡眠
-&lt;/h3&gt;&lt;p&gt;合盖睡眠是正常的，但是在系统里按睡眠会秒醒&lt;br&gt;
-14X 可以试试添加 &lt;code&gt;acpi.ec_no_wakeup=1&lt;/code&gt; 到内核参数里&lt;br&gt;
-&lt;strong&gt;15X 无解&lt;/strong&gt;，试了上面的办法没用&lt;/p&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/sund3RRR/mechrevo14X-linux&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Github - mechrevo14X-linux&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zeeko.dev/2025/06/running-linux-on-mechanical-revolution-15xpro-blizzard/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;在机械革命无界 15XPro 暴风雪上运行 Linux&lt;/a&gt; (感谢 Zeeko 的补充！)&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 </description>
         </item>
         <item>
