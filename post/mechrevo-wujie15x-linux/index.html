@@ -10,7 +10,7 @@
 <meta property='og:description' content="怎么就想不开买机革呢.webp">
 <meta property='og:url' content='https://rikka.im/post/mechrevo-wujie15x-linux/'>
 <meta property='og:site_name' content='Rikkaの小小窝'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='软件' /><meta property='article:tag' content='电脑' /><meta property='article:tag' content='Linux' /><meta property='article:published_time' content='2025-06-01T23:04:18&#43;08:00'/><meta property='article:modified_time' content='2025-06-29T02:07:01&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='软件' /><meta property='article:tag' content='电脑' /><meta property='article:tag' content='Linux' /><meta property='article:published_time' content='2025-06-01T23:04:18&#43;08:00'/><meta property='article:modified_time' content='2025-08-06T00:53:48&#43;08:00'/>
 <meta name="twitter:title" content="机械革命无界 15X Linux 优化指南">
 <meta name="twitter:description" content="怎么就想不开买机革呢.webp">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -467,6 +467,7 @@
 不过幸好德国一个叫 TUXEDO 的公司也用了相同的模具，于是就有了驱动和控制面板</p>
 <h2 id="rj45-网卡">RJ45 网卡
 </h2><p>你机革不知道从哪里捡的网卡，没进主线导致没驱动，只能自己装</p>
+<p>官方驱动在 6.16 内核大爆炸，修不了，要么不要更内核要么用无线</p>
 <p>Arch Linux 系用户: 用 AUR 的 <a class="link" href="https://aur.archlinux.org/packages/yt6801-dkms"  target="_blank" rel="noopener"
     >yt6801-dkms</a> (我维护的)<br>
 Debian/Ubuntu 系用户: <a class="link" href="https://www.motor-comm.com/Public/Uploads/uploadfile/files/20250430/yt6801-linux-driver-1.0.30.zip"  target="_blank" rel="noopener"
@@ -512,7 +513,7 @@ Debian/Ubuntu 系用户: 按照 TUXEDO 的<a class="link" href="https://www.tuxe
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="更新-plasma-640-后鼠标光标卡顿">更新 Plasma 6.4.0 后鼠标光标卡顿
-</h2><p>在设置-显示和监视器里关掉自适应同步就好了<br>
+</h2><p>在设置-显示和监视器里把自适应同步改成自动或者关掉就好了<br>
 就这个破问题搞了我两个星期……</p>
 <h2 id="人脸识别">人脸识别
 </h2><p>说真的在 Linux 其实不好用，唯一一个还算能用的方案是 <a class="link" href="https://github.com/boltgolt/howdy"  target="_blank" rel="noopener"
@@ -571,7 +572,7 @@ Debian/Ubuntu 系用户: 按照 TUXEDO 的<a class="link" href="https://www.tuxe
 
 
         <span>
-            最后修改于 2025-06-29 02:07 &#43;0800
+            最后修改于 2025-08-06 00:53 &#43;0800
         </span>
     </section></footer>
 
