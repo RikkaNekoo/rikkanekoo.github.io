@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Shiina Rikka</copyright>
-        <lastBuildDate>Wed, 06 Aug 2025 00:53:48 +0800</lastBuildDate><atom:link href="https://rikka.im/tags/%E7%94%B5%E8%84%91/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 17 Aug 2025 18:01:00 +0800</lastBuildDate><atom:link href="https://rikka.im/tags/%E7%94%B5%E8%84%91/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>机械革命无界 15X Linux 优化指南</title>
         <link>https://rikka.im/post/mechrevo-wujie15x-linux/</link>
         <pubDate>Sun, 01 Jun 2025 23:04:18 +0800</pubDate>
@@ -18,27 +18,26 @@
 不过幸好德国一个叫 TUXEDO 的公司也用了相同的模具，于是就有了驱动和控制面板&lt;/p&gt;
 &lt;h2 id=&#34;rj45-网卡&#34;&gt;RJ45 网卡
 &lt;/h2&gt;&lt;p&gt;你机革不知道从哪里捡的网卡，没进主线导致没驱动，只能自己装&lt;/p&gt;
-&lt;p&gt;官方驱动在 6.16 内核大爆炸，修不了，要么不要更内核要么用无线&lt;/p&gt;
-&lt;p&gt;Arch Linux 系用户: 用 AUR 的 &lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/yt6801-dkms&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;yt6801-dkms&lt;/a&gt; (我维护的)&lt;br&gt;
+&lt;p&gt;Arch Linux 系用户: &lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/yt6801-dkms&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;yt6801-dkms&lt;/a&gt;&lt;sup&gt;AUR&lt;/sup&gt;&lt;br&gt;
 Debian/Ubuntu 系用户: &lt;a class=&#34;link&#34; href=&#34;https://www.motor-comm.com/Public/Uploads/uploadfile/files/20250430/yt6801-linux-driver-1.0.30.zip&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;官网下载&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;键盘背光等驱动&#34;&gt;键盘背光等驱动
-&lt;/h2&gt;&lt;p&gt;Arch Linux 系用户: 用 AUR 的 &lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/mechrevo-drivers-dkms&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;mechrevo-drivers-dkms&lt;/a&gt; (也是我维护的xwx，TUXEDO 的驱动打了 patch 来支持机革)&lt;br&gt;
+&lt;h2 id=&#34;设备驱动&#34;&gt;设备驱动
+&lt;/h2&gt;&lt;p&gt;Arch Linux 系用户: &lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/mechrevo-drivers-dkms&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;mechrevo-drivers-dkms&lt;/a&gt;&lt;sup&gt;AUR&lt;/sup&gt;&lt;br&gt;
 Debian/Ubuntu 系用户: 自己拉&lt;a class=&#34;link&#34; href=&#34;https://github.com/tuxedocomputers/tuxedo-drivers&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;源码&lt;/a&gt;打 &lt;a class=&#34;link&#34; href=&#34;https://github.com/sund3RRR/Mechrevo14X-linux/raw/master/patches/add_mechrevo_vendor.patch&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;patch&lt;/a&gt; 然后编译安装吧&lt;/p&gt;
 &lt;h2 id=&#34;控制面板&#34;&gt;控制面板
-&lt;/h2&gt;&lt;p&gt;Linux 上的面板只能改一下性能配置、键盘背光等，聊胜于无吧&lt;br&gt;
+&lt;/h2&gt;&lt;p&gt;TUXEDO 的控制面板提供了绝大多数机革控制面板功能&lt;br&gt;
 装好之后在 KDE 的状态栏亮度设置里就能调整键盘背光强度和颜色了&lt;/p&gt;
-&lt;p&gt;Arch Linux 系用户: 用 AUR 的 &lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/tuxedo-control-center-bin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;tuxedo-control-center-bin&lt;/a&gt; (AUR 万岁！)&lt;br&gt;
+&lt;p&gt;Arch Linux 系用户: &lt;a class=&#34;link&#34; href=&#34;https://aur.archlinux.org/packages/tuxedo-control-center-bin&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;tuxedo-control-center-bin&lt;/a&gt;&lt;sup&gt;AUR&lt;/sup&gt;&lt;br&gt;
 Debian/Ubuntu 系用户: 按照 TUXEDO 的&lt;a class=&#34;link&#34; href=&#34;https://www.tuxedocomputers.com/en/Add-TUXEDO-software-package-sources.tuxedo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;教程&lt;/a&gt;添加源后安装 &lt;code&gt;tuxedo-control-center&lt;/code&gt; 包&lt;/p&gt;
 &lt;h2 id=&#34;无法睡眠&#34;&gt;无法睡眠
-&lt;/h2&gt;&lt;p&gt;14X 可以试试添加 &lt;code&gt;acpi.ec_no_wakeup=1&lt;/code&gt; 到内核参数里&lt;/p&gt;
-&lt;p&gt;15X 新建一条 udev 规则禁用 PS/2 键盘的 Wakeup Trigger&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;br&gt;
+&lt;/h2&gt;&lt;p&gt;可以试试添加 &lt;code&gt;acpi.ec_no_wakeup=1&lt;/code&gt; 到内核参数里&lt;/p&gt;
+&lt;p&gt;如果不行的话就新建一条 udev 规则禁用 PS/2 键盘的 Wakeup Trigger&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;br&gt;
 &lt;code&gt;/etc/udev/rules.d/99-disable-keyboard-wakeup.rules&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -74,7 +73,9 @@ Debian/Ubuntu 系用户: 按照 TUXEDO 的&lt;a class=&#34;link&#34; href=&#34;h
 &lt;/h2&gt;&lt;p&gt;用 CachyOS，有针对 Zen4 专门优化的仓库&lt;/p&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/sund3RRR/mechrevo14X-linux&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Github - mechrevo14X-linux&lt;/a&gt;&lt;/p&gt;
+    &gt;Github - mechrevo14X-linux&lt;/a&gt;&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://wiki.archlinux.org/title/Mechrevo_WUJIE14X&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;ArchWiki - Mechrevo WUJIE14X&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
