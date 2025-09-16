@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Shiina Rikka</copyright>
-        <lastBuildDate>Sun, 17 Aug 2025 18:01:00 +0800</lastBuildDate><atom:link href="https://rikka.im/tags/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 16 Sep 2025 14:02:33 +0800</lastBuildDate><atom:link href="https://rikka.im/tags/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>机械革命无界 15X Linux 优化指南</title>
         <link>https://rikka.im/post/mechrevo-wujie15x-linux/</link>
         <pubDate>Sun, 01 Jun 2025 23:04:18 +0800</pubDate>
@@ -35,6 +35,9 @@ Debian/Ubuntu 系用户: 自己拉&lt;a class=&#34;link&#34; href=&#34;https://g
     &gt;tuxedo-control-center-bin&lt;/a&gt;&lt;sup&gt;AUR&lt;/sup&gt;&lt;br&gt;
 Debian/Ubuntu 系用户: 按照 TUXEDO 的&lt;a class=&#34;link&#34; href=&#34;https://www.tuxedocomputers.com/en/Add-TUXEDO-software-package-sources.tuxedo&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;教程&lt;/a&gt;添加源后安装 &lt;code&gt;tuxedo-control-center&lt;/code&gt; 包&lt;/p&gt;
+&lt;h2 id=&#34;屏幕色彩校准&#34;&gt;屏幕色彩校准
+&lt;/h2&gt;&lt;p&gt;从 Windows 的控制面板把 ICC profile 提取出来了，在设置里选择好就行&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;BOE0C85_B025AA7B0639.icm&#34; &gt;BOE0C85_B025AA7B0639.icm&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;无法睡眠&#34;&gt;无法睡眠
 &lt;/h2&gt;&lt;p&gt;可以试试添加 &lt;code&gt;acpi.ec_no_wakeup=1&lt;/code&gt; 到内核参数里&lt;/p&gt;
 &lt;p&gt;如果不行的话就新建一条 udev 规则禁用 PS/2 键盘的 Wakeup Trigger&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;br&gt;
