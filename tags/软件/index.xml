@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Shiina Rikka</copyright>
-        <lastBuildDate>Tue, 16 Sep 2025 14:02:33 +0800</lastBuildDate><atom:link href="https://rikka.im/tags/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 21 Oct 2025 18:17:23 +0800</lastBuildDate><atom:link href="https://rikka.im/tags/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>机械革命无界 15X Linux 优化指南</title>
         <link>https://rikka.im/post/mechrevo-wujie15x-linux/</link>
         <pubDate>Sun, 01 Jun 2025 23:04:18 +0800</pubDate>
@@ -134,12 +134,6 @@ Debian/Ubuntu 系用户: 按照 TUXEDO 的&lt;a class=&#34;link&#34; href=&#34;h
 使用的是开源宇宙的 EG01，有个架子还是美观点的&lt;br&gt;
 显卡选择 Tesla M40 的最大原因其实是没钱（x&lt;br&gt;
 性能还 OK，显存也大，重点是还便宜&lt;br&gt;
-
-&lt;div class=&#34;post-img-view&#34;&gt;
-&lt;a data-fancybox=&#34;gallery&#34; href=&#34;nvidia-smi.webp&#34;&gt;
-&lt;img src=&#34;nvidia-smi.webp&#34; alt=&#34;&#34;  /&gt;
-&lt;/a&gt;
-&lt;/div&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;折腾过程&#34;&gt;折腾过程
 &lt;/h2&gt;&lt;p&gt;到货，插电，开机，轻松卡自检&lt;br&gt;
@@ -696,13 +690,7 @@ Linux 下就更简单了，装好闭源驱动就能直接就能用于图形渲�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;启动试试吧，如果一切正常，你将会看到会看到类似&lt;/p&gt;
-&lt;p&gt;
-&lt;div class=&#34;post-img-view&#34;&gt;
-&lt;a data-fancybox=&#34;gallery&#34; href=&#34;artemis.webp&#34;&gt;
-&lt;img src=&#34;artemis.webp&#34; alt=&#34;Artemis&#34;  /&gt;
-&lt;/a&gt;
-&lt;/div&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 &lt;p&gt;的输出&lt;/p&gt;
 &lt;h2 id=&#34;linux&#34;&gt;Linux
 &lt;/h2&gt;&lt;p&gt;实际上没什么好讲的&lt;br&gt;
