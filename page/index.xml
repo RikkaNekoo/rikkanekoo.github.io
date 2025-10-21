@@ -95,11 +95,29 @@
 &lt;summary&gt;玩过的/正在玩的游戏&lt;/summary&gt;  
 &lt;p&gt;&lt;strong&gt;Chunithm&lt;/strong&gt;&lt;br&gt;
 Luminous&lt;br&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;Luminous.webp&#34;&gt;
+&lt;img src=&#34;Luminous.webp&#34; alt=&#34;Luminous&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
 &lt;br&gt;
 国服&lt;br&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;Chunithm.webp&#34;&gt;
+&lt;img src=&#34;Chunithm.webp&#34; alt=&#34;国服&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;maimai DX&lt;/strong&gt;&lt;br&gt;
 国服&lt;br&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;maimai.webp&#34;&gt;
+&lt;img src=&#34;maimai.webp&#34; alt=&#34;国服&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
 &lt;br&gt;
 &lt;strong&gt;Phigros&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;RKS: 15.00&lt;/p&gt;

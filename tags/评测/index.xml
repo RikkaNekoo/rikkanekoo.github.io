@@ -15,6 +15,12 @@
         <guid>https://rikka.im/post/mechrevo-wujie15xa/</guid>
         <description>&lt;h2 id=&#34;好耶&#34;&gt;好耶
 &lt;/h2&gt;&lt;p&gt;
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;fastfetch.webp&#34;&gt;
+&lt;img src=&#34;fastfetch.webp&#34; alt=&#34;&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+
 总之就是，换新电脑了&lt;br&gt;
 国补完 3998 到手&lt;br&gt;
 以前的那台零刻 SER5 MAX 虽然说确实有一定的便携性，但还是不怎么方便（便携屏+键盘），而且在外面组好这套有点太显眼了x，于是卖掉了&lt;/p&gt;
@@ -49,6 +55,12 @@
 &lt;/h3&gt;&lt;h4 id=&#34;地平线-4&#34;&gt;地平线 4
 &lt;/h4&gt;&lt;p&gt;2560x1600，预设高，基准测试全程 60FPS，游戏时显卡占用约为 85-98%&lt;br&gt;
 （它比 Tesla M40 还要强诶！）
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;horizon4.webp&#34;&gt;
+&lt;img src=&#34;horizon4.webp&#34; alt=&#34;&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
 &lt;/p&gt;
 &lt;h4 id=&#34;minecraft&#34;&gt;Minecraft
 &lt;/h4&gt;&lt;p&gt;这不是闭着眼跑吗x&lt;br&gt;
@@ -67,6 +79,12 @@
 使用的是开源宇宙的 EG01，有个架子还是美观点的&lt;br&gt;
 显卡选择 Tesla M40 的最大原因其实是没钱（x&lt;br&gt;
 性能还 OK，显存也大，重点是还便宜&lt;br&gt;
+
+&lt;div class=&#34;post-img-view&#34;&gt;
+&lt;a data-fancybox=&#34;gallery&#34; href=&#34;nvidia-smi.webp&#34;&gt;
+&lt;img src=&#34;nvidia-smi.webp&#34; alt=&#34;&#34;  /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;折腾过程&#34;&gt;折腾过程
 &lt;/h2&gt;&lt;p&gt;到货，插电，开机，轻松卡自检&lt;br&gt;
