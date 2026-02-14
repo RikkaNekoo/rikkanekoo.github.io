@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn" dir="ltr">
+<html lang="zh_cn" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="介绍 Artemis 没什么好介绍的了吧，给 SEGA 系 HDD 用的本地服，算是 Aqua 的继承者？\nA network service emulator for games running SEGA&rsquo;S ALL.NET service, and similar.\nArtemis 更新真的很快，我的更新速度可能跟不上\n如果内容失效的话，评论区或者邮箱发我，看到会处理的）\n">
 <title>Artemis 不完全食用指南</title>
@@ -78,7 +78,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_42f903d74c8fbed.webp" width="300"
+                        <img src="/img/avatar_hu_77360a2a57ed4cb3.webp" width="300"
                             height="300" class="site-logo" fetchpriority=high alt="Avatar">
                     
                 
@@ -535,10 +535,10 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;aime&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;&lt;Enter Password Here&gt;&#39;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">aime</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GRANT</span><span class="w"> </span><span class="k">Alter</span><span class="p">,</span><span class="k">Create</span><span class="p">,</span><span class="k">Delete</span><span class="p">,</span><span class="k">Drop</span><span class="p">,</span><span class="k">Index</span><span class="p">,</span><span class="k">Insert</span><span class="p">,</span><span class="k">References</span><span class="p">,</span><span class="k">Select</span><span class="p">,</span><span class="k">Update</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">aime</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;aime&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">exit</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">aime</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">GRANT</span><span class="w"> </span><span class="k">Alter</span><span class="p">,</span><span class="k">Create</span><span class="p">,</span><span class="k">Delete</span><span class="p">,</span><span class="k">Drop</span><span class="p">,</span><span class="k">Index</span><span class="p">,</span><span class="k">Insert</span><span class="p">,</span><span class="k">References</span><span class="p">,</span><span class="k">Select</span><span class="p">,</span><span class="k">Update</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">aime</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;aime&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="n">exit</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="下载-artemis">下载 Artemis
@@ -580,9 +580,9 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">server</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">listen_address</span><span class="p">:</span><span class="w"> </span><span class="m">0.0.0.0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">database</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">database</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;你之前设置的密码&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">aimedb</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">aimedb</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Copyright(C)SEGA&#34;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
@@ -655,7 +655,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">team</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ARTEMiS</span><span class="w"> </span><span class="c"># 默认队伍名</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">14</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rom</span><span class="p">:</span><span class="w"> </span><span class="m">2.16.00</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">data</span><span class="p">:</span><span class="w"> </span><span class="m">2.15.11</span><span class="w">
@@ -853,7 +853,7 @@
         
             2024 - 
         
-        2025 Shiina Rikka
+        2026 Shiina Rikka
     </section>
     
     <section class="powerby">

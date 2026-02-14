@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn" dir="ltr">
+<html lang="zh_cn" dir="ltr">
     <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="All in Debian!">
 <title>让 Debian 作为一台路由器</title>
@@ -10,7 +10,7 @@
 <meta property='og:description' content="All in Debian!">
 <meta property='og:url' content='https://rikka.im/post/debian-router/'>
 <meta property='og:site_name' content='Rikkaの小小窝'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='软件' /><meta property='article:tag' content='教程' /><meta property='article:tag' content='网络' /><meta property='article:published_time' content='2025-12-08T14:46:11&#43;08:00'/><meta property='article:modified_time' content='2025-12-08T19:57:03&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='软件' /><meta property='article:tag' content='教程' /><meta property='article:tag' content='网络' /><meta property='article:published_time' content='2025-12-08T14:46:11&#43;08:00'/><meta property='article:modified_time' content='2026-02-14T14:44:03&#43;08:00'/>
 <meta name="twitter:title" content="让 Debian 作为一台路由器">
 <meta name="twitter:description" content="All in Debian!">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -72,7 +72,7 @@
                     
                     
                         
-                        <img src="/img/avatar_hu_42f903d74c8fbed.webp" width="300"
+                        <img src="/img/avatar_hu_77360a2a57ed4cb3.webp" width="300"
                             height="300" class="site-logo" fetchpriority=high alt="Avatar">
                     
                 
@@ -387,7 +387,6 @@
     </li>
     <li><a href="#网络接口配置">网络接口配置</a></li>
     <li><a href="#拨号">拨号</a></li>
-    <li><a href="#分配-pd">分配 PD</a></li>
     <li><a href="#dns-和-dhcp">DNS 和 DHCP</a></li>
     <li><a href="#配置-nat">配置 NAT</a></li>
     <li><a href="#upnp">UPnP</a></li>
@@ -461,7 +460,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 4 分钟
+                    阅读时长: 3 分钟
                 </time>
             </div>
         
@@ -507,24 +506,19 @@
 <p>然后执行 <code>sudo sysctl --system</code></p>
 <p>碎碎念：Debian 13 的 systemd-sysctl 已经忽略 <code>/etc/sysctl.conf</code> ，当时还一直纳闷为什么 sysctl -p 为什么不生效</p>
 <h3 id="软件安装">软件安装
-</h3><p><code>pppoeconf</code>：用于宽带拨号<br>
-<code>wide-dhcpv6-client</code>：用于获取 IPv6 PD 前缀并配置到接口<br>
+</h3><p><code>network-manager</code>：用于替代 ifupdown 管理网卡<br>
+<code>ppp</code>：用于宽带拨号<br>
 <code>dnsmasq</code>：用于为 LAN 提供 DNS 服务、DHCP 服务和 IPv6 路由通告服务<br>
 <code>docker</code> 或 <code>podman</code>：可选，稍后解释用处</p>
 <h2 id="网络接口配置">网络接口配置
-</h2><p>如果你只有一个 LAN 口，则将以下配置添加到 <code>/etc/network/interfaces</code></p>
+</h2><p>首先，将 <code>/etc/network/interfaces</code> 中除 loopback 之外的网卡配置全部删除</p>
+<p>如果你只有一个 LAN 口，则使用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">auto enp1s0
-</span></span><span class="line"><span class="cl">allow-hotplug enp1s0
-</span></span><span class="line"><span class="cl">iface enp1s0 inet static
-</span></span><span class="line"><span class="cl">    address 10.21.0.1/24
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo nmcli c add type &#34;ethernet&#34; con-name &#34;lan&#34; ifname &#34;enp1s0&#34; ipv4.method &#34;manual&#34; ipv4.addresses &#34;10.21.0.1/24&#34;
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>注意将 <code>enp1s0</code> 改成你的实际网卡名称， <code>10.21.0.1/24</code> 改成你想要的网段</p>
@@ -536,169 +530,68 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">auto br-lan
-</span></span><span class="line"><span class="cl">iface br-lan inet static
-</span></span><span class="line"><span class="cl">    address 10.21.0.1/24
-</span></span><span class="line"><span class="cl">    bridge-ports eno2 eno3 eno4
-</span></span><span class="line"><span class="cl">    bridge-stp off
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 创建桥
+</span></span><span class="line"><span class="cl">sudo nmcli c add type &#34;bridge&#34; con-name &#34;bridge&#34; ifname &#34;br-lan&#34; ipv4.method &#34;manual&#34; ipv4.addresses &#34;10.21.0.1/24&#34;
+</span></span><span class="line"><span class="cl"># 将网卡添加到桥
+</span></span><span class="line"><span class="cl">sudo nmcli c add type &#34;bridge-slave&#34; ifname &#34;eno2&#34; master &#34;br-lan&#34;
+</span></span><span class="line"><span class="cl">sudo nmcli c add type &#34;bridge-slave&#34; ifname &#34;eno3&#34; master &#34;br-lan&#34;
+</span></span><span class="line"><span class="cl"># 以此类推
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>同样，将 <code>eno2</code> <code>eno3</code> <code>eno4</code> 改成你的实际网卡名称， <code>10.21.0.1/24</code> 改成你想要的网段</p>
+</div><p>同样，将 <code>eno2</code> <code>eno3</code> 改成你的实际网卡名称， <code>10.21.0.1/24</code> 改成你想要的网段</p>
 <h2 id="拨号">拨号
-</h2><p>插好 WAN 口网线，执行 <code>sudo pppconfig</code>，会自动检测 WAN 口并拨号</p>
+</h2><p>最初 Rikka 使用的是 ifupdown + pppconfig 的方案，但是这套方案不仅过时而且稳定性欠佳（用着用着突然出现开机不自启了<br>
+最终还是切换到了 NetworkManager，稳定性更好更先进而且配置也简单ww</p>
+<p>只需要很简单的一行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo nmcli c add type &#34;pppoe&#34; con-name &#34;pppoe&#34; ifname &#34;eno0&#34; username &#34;0d00&#34; password &#34;0721&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将 <code>eno0</code> 改为实际的 WAN 网卡并修改账号密码即可完成配置</p>
+<p>使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo nmcli c modify &#34;br-lan&#34; ipv6.method &#34;shared&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>给 LAN 分配 PD，不过 NetworkManager 无法修改前缀长度，只能固定 /64
+（记得将 <code>br-lan</code> 改为实际的 LAN 配置名称</p>
+<p>然后将 <code>/etc/ppp/ip-up.d/0clampmss</code> 和 <code>/etc/ppp/ip-down.d/0clampmss</code> 分别复制到 <code>/etc/ppp/ipv6-up.d/0clampmss</code> 和 <code>/etc/ppp/ipv6-down.d/0clampmss</code>，并将里面的 <code>iptables</code> 改成 <code>ip6tables</code></p>
+<p>修改完后执行 <code>sudo nmcli c up pppoe</code> 拨号，此时服务器已经可以上网了，但是由于还没有配置 DNS，所以暂时只能 ping IP</p>
+<p>每次重新拨号都会有 PD 残留在 LAN 网卡，所以需要在 IPv6 下线时重启 PPPoE 以获取新的 PD，并重启 dnsmasq 重新分发</p>
+<p>创建 <code>/etc/ppp/ipv6-up.d/restart_dnsmasq</code> 并写入以下内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">┌─────────────────────┤ USE PEER DNS ├─────────────────────┐
-</span></span><span class="line"><span class="cl">│ You need at least one DNS IP address to resolve the      │
-</span></span><span class="line"><span class="cl">│ normal host names. Normally your provider sends you      │
-</span></span><span class="line"><span class="cl">│ addresses of useable servers when the connection is      │
-</span></span><span class="line"><span class="cl">│ established. Would you like to add these addresses       │
-</span></span><span class="line"><span class="cl">│ automatically to the list of nameservers in your local   │
-</span></span><span class="line"><span class="cl">│ /etc/resolv.conf file? (recommended)                     │
-</span></span><span class="line"><span class="cl">│               &lt;Yes&gt;                  &lt;No&gt;                │
-</span></span><span class="line"><span class="cl">└──────────────────────────────────────────────────────────┘
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意这里要选 No，因为后面我们要使用 Dnsmasq 作为 DNS 服务器<br>
-其他选项全部 Yes 就行</p>
-<p><code>pppconfig</code> 执行完之后，还需要进行一些修改<br>
-首先打开 <code>/etc/ppp/peers/dsl-provider</code>，并在最后一行添加 <code>+ipv6</code>，修改好的配置如下</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">noipdefault
-</span></span><span class="line"><span class="cl">defaultroute
-</span></span><span class="line"><span class="cl">replacedefaultroute
-</span></span><span class="line"><span class="cl">hide-password
-</span></span><span class="line"><span class="cl">#lcp-echo-interval 30
-</span></span><span class="line"><span class="cl">#lcp-echo-failure 4
-</span></span><span class="line"><span class="cl">noauth
-</span></span><span class="line"><span class="cl">persist
-</span></span><span class="line"><span class="cl">#mtu 1492
-</span></span><span class="line"><span class="cl">#persist
-</span></span><span class="line"><span class="cl">#maxfail 0
-</span></span><span class="line"><span class="cl">#holdoff 20
-</span></span><span class="line"><span class="cl">plugin rp-pppoe.so
-</span></span><span class="line"><span class="cl">nic-eno1
-</span></span><span class="line"><span class="cl">user &#34;0d000721&#34;
-</span></span><span class="line"><span class="cl">+ipv6
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>然后将 <code>/etc/ppp/ip-up.d/0clampmss</code> 和 <code>/etc/ppp/ip-down.d/0clampmss</code> 分别复制到 <code>/etc/ppp/ipv6-up.d/0clampmss</code> 和 <code>/etc/ppp/ipv6-down.d/0clampmss</code>，并将里面的 <code>iptables</code> 改成 <code>ip6tables</code></p>
-<p>修改完后执行 <code>sudo systemctl restart networking</code> 重新拨号，此时服务器已经可以上网了，但是由于还没有配置 DNS，所以暂时只能 ping IP</p>
-<h2 id="分配-pd">分配 PD
-</h2><p>这边使用 <code>wide-dhcpv6-client</code> 来获取 PD 并分配到 LAN<br>
-打开 <code>/etc/wide-dhcpv6/dhcp6c.conf</code>，修改为如下内容</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">interface ppp0 {
-</span></span><span class="line"><span class="cl">    send ia-pd 0;
-</span></span><span class="line"><span class="cl">};
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">id-assoc pd 0 {
-</span></span><span class="line"><span class="cl">    prefix-interface br-lan {
-</span></span><span class="line"><span class="cl">        sla-len 0;
-</span></span><span class="line"><span class="cl">        ifid 0;
-</span></span><span class="line"><span class="cl">    };
-</span></span><span class="line"><span class="cl">};
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>注意 <code>br-lan</code> 修改为你实际的 LAN 网卡名称<br>
-<code>sla-len</code> 代表前缀长度，如果下发的是 /60 则填写 4 获得 /60+4=/64，如果下发的是 /64 填写 0，/64+0=/64，以此类推，总之最后的长度需要为 /64</p>
-<p>每次重新拨号都会有 PD 残留在 LAN 网卡，经过询问专家系统，在星野玲的方案上稍加修改，终于搞定了，还顺便解决了重启之后 wide-dhcpv6-client.sevice 自启动失败的问题</p>
-<p>创建 <code>/etc/ppp/ipv6-up.d/restart_wide-dhcpv6-client</code> 并写入以下内容</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl">systemctl restart wide-dhcpv6-client
-</span></span><span class="line"><span class="cl">systemctl restart dnsmasq
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="m">0</span>
+</span></span></span><span class="line"><span class="cl">systemctl restart dnsmasq
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>创建 <code>/etc/ppp/ipv6-down.d/del_ipv6_pd_prefix</code> 并写入以下内容</p>
+</div><p>创建 <code>/etc/ppp/ipv6-down.d/restart_pppoe</code> 并写入以下内容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="nv">INTERFACE</span><span class="o">=</span>br-lan
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nv">IPV6_ADDRESS</span><span class="o">=</span><span class="k">$(</span>ip a show dev br-lan scope global <span class="p">|</span> awk <span class="s1">&#39;$2 ~ /::\/64$/ {print $2}&#39;</span><span class="k">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> -n <span class="s2">&#34;</span><span class="nv">$IPV6_ADDRESS</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">  ip addr del <span class="nv">$IPV6_ADDRESS</span> dev <span class="nv">$INTERFACE</span>
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="m">0</span>
+</span></span></span><span class="line"><span class="cl">nmcli c down pppoe <span class="o">&amp;&amp;</span> nmcli c up pppoe
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这里的 <code>br-lan</code> 改为你实际的 LAN 网卡</p>
-<p>解释：<code>del_ipv6_pd_prefix</code> 在 ppp0 掉线时删除分配给 LAN 的 PD<br>
-<code>restart_wide-dhcpv6-client</code> 则是在 ppp0 上线时重启 wide-dhcpv6-client 和 dnsmasq，给 LAN 重新分配 PD 并让 Dnsmasq 更新 DHCP 下发的地址</p>
+</div><p>这里的 <code>pppoe</code> 改为 NetroowkManager 的 PPPoE 配置名称</p>
 <h2 id="dns-和-dhcp">DNS 和 DHCP
 </h2><p>修改 <code>/etc/dnsmasq.conf</code>，内容如下</p>
 <div class="highlight"><div class="chroma">
@@ -866,6 +759,8 @@ Debian 可以折腾的可比 OpenWrt 多得多啦，慢慢发掘吧
 <h2 id="参考">参考
 </h2><p><a class="link" href="https://blog.bling.moe/post/3/"  target="_blank" rel="noopener"
     >使用 Debian 作为路由器</a><br>
+<a class="link" href="https://blog.bling.moe/post/19/"  target="_blank" rel="noopener"
+    >使用 NetworkManager 配置 Debian 路由器</a><br>
 <a class="link" href="https://blog.h1ra.net/post/debian-router/"  target="_blank" rel="noopener"
     >Debian 12 软路由配置随记</a></p>
 
@@ -907,7 +802,7 @@ Debian 可以折腾的可比 OpenWrt 多得多啦，慢慢发掘吧
 
 
         <span>
-            最后修改于 2025-12-08 19:57 &#43;0800
+            最后修改于 2026-02-14 14:44 &#43;0800
         </span>
     </section></footer>
 
@@ -1036,7 +931,7 @@ Debian 可以折腾的可比 OpenWrt 多得多啦，慢慢发掘吧
         
             2024 - 
         
-        2025 Shiina Rikka
+        2026 Shiina Rikka
     </section>
     
     <section class="powerby">
