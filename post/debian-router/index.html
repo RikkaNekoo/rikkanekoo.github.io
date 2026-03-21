@@ -10,7 +10,7 @@
 <meta property='og:description' content="All in Debian!">
 <meta property='og:url' content='https://rikka.im/post/debian-router/'>
 <meta property='og:site_name' content='Rikkaの小小窝'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='软件' /><meta property='article:tag' content='教程' /><meta property='article:tag' content='网络' /><meta property='article:published_time' content='2025-12-08T14:46:11&#43;08:00'/><meta property='article:modified_time' content='2026-02-18T02:40:31&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='软件' /><meta property='article:tag' content='教程' /><meta property='article:tag' content='网络' /><meta property='article:published_time' content='2025-12-08T14:46:11&#43;08:00'/><meta property='article:modified_time' content='2026-03-21T17:08:25&#43;08:00'/>
 <meta name="twitter:title" content="让 Debian 作为一台路由器">
 <meta name="twitter:description" content="All in Debian!">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -534,7 +534,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 创建桥
-</span></span><span class="line"><span class="cl">sudo nmcli c add type &#34;bridge&#34; con-name &#34;bridge&#34; ifname &#34;br-lan&#34; ipv4.method &#34;manual&#34; ipv4.addresses &#34;10.21.0.1/24&#34;
+</span></span><span class="line"><span class="cl">sudo nmcli c add type &#34;bridge&#34; con-name &#34;br-lan&#34; ifname &#34;br-lan&#34; ipv4.method &#34;manual&#34; ipv4.addresses &#34;10.21.0.1/24&#34;
 </span></span><span class="line"><span class="cl"># 将网卡添加到桥
 </span></span><span class="line"><span class="cl">sudo nmcli c add type &#34;bridge-slave&#34; ifname &#34;eno2&#34; master &#34;br-lan&#34;
 </span></span><span class="line"><span class="cl">sudo nmcli c add type &#34;bridge-slave&#34; ifname &#34;eno3&#34; master &#34;br-lan&#34;
@@ -585,15 +585,17 @@
 </span></span><span class="line"><span class="cl">}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>并使用 <code>systemctl restart nftables</code> 重启 nftables<br>
+</div><p>并使用 <code>sudo systemctl restart nftables</code> 重启 nftables<br>
 （不开的话大包会因为禁止分片被丢掉的哦</p>
 <p>如果不想使用 ISP 下发的 DNS 的话，可以执行下面的命令来禁用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sudo nmcli c modify pppoe ipv4.ignore-auto-dns &#34;yes&#34; ipv6.ignore-auto-dns &#34;yes&#34;
+</span></span><span class="line"><span class="cl">sudo nmcli c modify br-lan ipv6.ignore-auto-dns &#34;yes&#34;
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>全部弄完后执行 <code>sudo nmcli c up pppoe</code> 拨号，此时服务器已经可以上网了</p>
@@ -674,7 +676,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">EHfive</span><span class="o">/</span><span class="n">einat</span><span class="o">-</span><span class="n">ebpf</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">v0</span><span class="o">.</span><span class="mf">1.9</span><span class="o">/</span><span class="n">einat</span><span class="o">-</span><span class="k">static</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">musl</span>
 </span></span><span class="line"><span class="cl"><span class="n">chmod</span> <span class="n">a</span><span class="o">+</span><span class="n">x</span> <span class="n">einat</span><span class="o">-</span><span class="k">static</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">musl</span>
-</span></span><span class="line"><span class="cl"><span class="n">mv</span> <span class="n">einat</span><span class="o">-</span><span class="k">static</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">musl</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">einat</span>
+</span></span><span class="line"><span class="cl"><span class="n">sudo</span> <span class="n">mv</span> <span class="n">einat</span><span class="o">-</span><span class="k">static</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">musl</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">einat</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后创建 <code>/etc/systemd/system/einat.service</code> 实现开机自启</p>
@@ -831,7 +833,7 @@ Debian 可以折腾的可比 OpenWrt 多得多啦，慢慢发掘吧
 
 
         <span>
-            最后修改于 2026-02-18 02:40 &#43;0800
+            最后修改于 2026-03-21 17:08 &#43;0800
         </span>
     </section></footer>
 
